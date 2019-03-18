@@ -190,7 +190,7 @@ def main():
     text_input = 'Доступные рисунки: \n\ 
     убегающий квадрат(1), двоичное дерево(2), ветка(3), кривая Коха(4),\n\ 
     cнежинка Коха(5), кривая Минковского(6), "ледяной" фрактал № 1(7), кривая Леви(8), \n\
-    дракон Хартера-Хейтуэя(9),  "ледяной" фрактал № 2(10), "ледяной" фрактал № 3(11), "ледяной" фрактал № 4(12) \n'
+    дракон Хартера-Хейтуэя(9),  Снежинка № 1(10), "ледяной" фрактал № 2(11), Снежинка № 2(12) \n'
     _list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     chos = turtle.textinput("chos", text_input + 'Выберите рисунок: ')
     while chos not in _list:
@@ -198,7 +198,7 @@ def main():
     order = turtle.numinput('order', 'Введите глубину рекурсии:', 3)
     chos = int(chos)
     size = turtle.numinput('order', 'Введите размер:', 100)
-    turtle.speed(9)
+    turtle.speed(0)
     if chos == 1:
         square(size, order)
     elif chos == 2:
@@ -208,23 +208,23 @@ def main():
         turtle.left(90)
         branch(size, order)
     elif chos == 4:
-        snowflake_1(size, order)
+        ice_frac_1(size, order)
     elif chos == 5:
-        snowflake_3(size, order)
+        snowflake_1(size, order)
     elif chos == 6:
         mink_curve(size, order)
     elif chos == 7:
-        ice_frac_1(size, order)
+        ice_frac_2(size, order)
     elif chos == 8:
         levi(size, order)
     elif chos == 9:
         dragon(size, order)
     elif chos == 10:
-        ice_frac_2(size, order)
+        snowflake_2(size, order)
     elif chos == 11:
         ice_frac_3(size, order)
     elif chos == 12:
-        snowflake_2(size, order)
+        snowflake_3(size, order)
     turtle.mainloop()
 
 
