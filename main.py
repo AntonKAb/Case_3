@@ -37,9 +37,7 @@ def snowflake_1(size, order):
         ice_frac_1(size, order)
         turtle.right(60)
 
-
-# TODO
-
+        
 # TODO
 def square(size, order):
     if not order:
@@ -156,3 +154,4 @@ def dragon(size, order):
     turtle.forward(size * 1 / 2 ** (1 / 2))
     turtle.down()
     turtle.right(45)
+
