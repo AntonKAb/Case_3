@@ -1,13 +1,6 @@
-"""
-Case_3
-Developers: Kabaev A., Anufrienko K., Lankevich S.
-"""
-
-from ru_local import *
 import turtle
 
 
-# TODO
 def ice_frac_1(size, order):
     if order == 0:
         return turtle.forward(size)
@@ -98,6 +91,40 @@ def snowflake_2(size, order):
         turtle.right(60)
 
 
+def branch(size, order):
+    if order == 0:
+        return
+    turtle.forward(size / 2)
+    turtle.left(45)
+    branch(size / 4, order - 1)
+    turtle.right(90)
+    branch(size / 4, order - 1)
+    turtle.left(45)
+    branch(size / 2, order - 1)
+    turtle.forward(size / 2)
+    turtle.backward(size)
+
+
+def mink_curve(size, order):
+    if order == 0:
+        return turtle.forward(size)
+    mink_curve(size / 4, order - 1)
+    turtle.left(90)
+    mink_curve(size / 4, order - 1)
+    turtle.right(90)
+    mink_curve(size / 4, order - 1)
+    turtle.right(90)
+    mink_curve(size / 4, order - 1)
+    mink_curve(size / 4, order - 1)
+    turtle.left(90)
+    mink_curve(size / 4, order - 1)
+    turtle.left(90)
+    mink_curve(size / 4, order - 1)
+    turtle.right(90)
+    mink_curve(size / 4, order - 1)
+
+
+
 def ice_frac_3(size, order):
     if order == 0:
         return turtle.forward(size)
@@ -155,3 +182,54 @@ def dragon(size, order):
     turtle.down()
     turtle.right(45)
 
+
+def main():
+    print('Доступные рисунки:')
+    print('убегающий квадрат(1), двоичное дерево(2), ветка(3), '
+          'кривая Коха(4), cнежинка Коха(5), кривая Минковского(6), "ледяной" фрактал № 1(7), кривая Леви(8), ')
+    print('дракон Хартера-Хейтуэя(9),  "ледяной" фрактал № 2(10), "ледяной" фрактал № 3(11),'
+          ' "ледяной" фрактал № 4(12), "ледяной" фрактал № 5(13), "ледяной" фрактал № 6(14)')
+    _list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+    chos = input('Вибирите номер рисунка:')
+    while chos not in _list:
+        chos = input('Введите корректное число:')
+    order = int(input('Введите глубину рекурсии:'))
+    chos_1 = int(chos)
+    size = int(input('Введите размер:'))
+    print('Готово.')
+    turtle.speed(9)
+    if chos == 1:
+        square(size, order)
+    if chos == 2:
+        turtle.left(90)
+        tree(size, order)
+    if chos_1 == 3:
+        turtle.left(90)
+        branch(size, order)
+    if chos_1 == 4:
+        # Серегадайкод
+    if chos_1 == 5:
+        # Серегадайкод
+    if chos_1 == 6:
+        mink_curve(size, order)
+    if chos_1 == 7:
+        ice_fractal_1(size, order)
+    if chos_1 == 8:
+        levi(size, order)
+    if chos_1 == 9:
+        dragon(size, order)
+    if chos_1 == 10:
+        ice_fractal_2(size, order)
+    if chos_1 == 11:
+        ice_fractal_3(size, order)
+    if chos_1 == 12:
+        snowflake_1(size, order)
+    if chos_1 == 14:
+        snowflake_3(size, order)
+    if chos_1 == 13:
+        snowflake_2(size, order)
+    turtle.mainloop()
+
+
+if __name__ == '__main__':
+    main()
