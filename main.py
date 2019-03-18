@@ -216,15 +216,15 @@ def main():
     if chos_1 == 6:
         mink_curve(size, order)
     if chos_1 == 7:
-        ice_fractal_1(size, order)
+        ice_frac_1(size, order)
     if chos_1 == 8:
         levi(size, order)
     if chos_1 == 9:
         dragon(size, order)
     if chos_1 == 10:
-        ice_fractal_2(size, order)
+        ice_frac_2(size, order)
     if chos_1 == 11:
-        ice_fractal_3(size, order)
+        ice_frac_3(size, order)
     if chos_1 == 12:
         snowflake_2(size, order)
     turtle.mainloop()
