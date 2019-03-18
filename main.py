@@ -124,7 +124,6 @@ def mink_curve(size, order):
     mink_curve(size / 4, order - 1)
 
 
-
 def ice_frac_3(size, order):
     if order == 0:
         return turtle.forward(size)
