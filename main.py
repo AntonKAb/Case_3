@@ -1,3 +1,7 @@
+"""
+Case_3
+Developers: Kabaev A., Anufrienko K.
+"""
 import turtle
 
 
