@@ -1,82 +1,85 @@
-"""
-Case_3
-Developers: Kabaev A., Anufrienko K., Lankevich S.
-"""
 
-from ru_local import *
-import turtle
-
-
-# TODO
-
-# TODO
-
-# TODO
-def k(d, n):
-    if not n:
+def branch(size, order):
+    if order == 0:
         return
-    turtle.up()
-    turtle.forward(d/4)
-    turtle.down()
-    for _ in range(4):
-        turtle.forward(d)
-        turtle.right(90)
-    turtle.right(10)
-    return k(0.8 * d, n - 1)
-
-
-def tree(d, n):
-    if n == 0:
-        return
-    turtle.forward(d)
-    turtle.right(30)
-    tree(0.6 * d, n - 1)
-    turtle.left(60)
-    tree(0.6 * d, n - 1)
-    turtle.right(30)
-    turtle.backward(d)
-
-
-def ice_frac_2(d, n):
-    if n == 0:
-        return turtle.forward(d)
-    ice_frac_2(d, n - 1)
-    turtle.left(135)
-    ice_frac_2(d / 2, n - 1)
-    turtle.right(180)
-    ice_frac_2(d / 2, n - 1)
-    turtle.left(90)
-    ice_frac_2(d / 2, n - 1)
-    turtle.right(180)
-    ice_frac_2(d / 2, n - 1)
-    turtle.left(135)
-    ice_frac_2(d, n - 1)
-
-
-def levi(d, n):
-    if n == 0:
-        return turtle.forward(d)
+    turtle.forward(size / 2)
     turtle.left(45)
-    levi(d * 1 / 2 ** (1 / 2), n - 1)
+    branch(size / 4, order - 1)
     turtle.right(90)
-    levi(d * 1 / 2 ** (1 / 2), n - 1)
+    branch(size / 4, order - 1)
     turtle.left(45)
+    branch(size / 2, order - 1)
+    turtle.forward(size / 2)
+    turtle.backward(size)
 
 
-def dragon(d, n):
-    if n == 0:
-        return turtle.forward(d)
-    turtle.right(45)
-    dragon(d * 1 / 2 ** (1 / 2), n - 1)
+def mink_curve(size, order):
+    if order == 0:
+        return turtle.forward(size)
+    mink_curve(size / 4, order - 1)
     turtle.left(90)
-    turtle.up()
-    turtle.forward(d * 1 / 2 ** (1 / 2))
-    turtle.down()
-    turtle.left(180)
-    dragon(d * 1 / 2 ** (1 / 2), n - 1)
-    turtle.left(180)
-    turtle.up()
-    turtle.forward(d * 1 / 2 ** (1 / 2))
-    turtle.down()
-    turtle.right(45)
+    mink_curve(size / 4, order - 1)
+    turtle.right(90)
+    mink_curve(size / 4, order - 1)
+    turtle.right(90)
+    mink_curve(size / 4, order - 1)
+    mink_curve(size / 4, order - 1)
+    turtle.left(90)
+    mink_curve(size / 4, order - 1)
+    turtle.left(90)
+    mink_curve(size / 4, order - 1)
+    turtle.right(90)
+    mink_curve(size / 4, order - 1)
 
+
+def main():
+    print('Доступные рисунки:')
+    print('убегающий квадрат(1), двоичное дерево(2), ветка(3), '
+          'кривая Коха(4), cнежинка Коха(5), кривая Минковского(6), "ледяной" фрактал № 1(7), кривая Леви(8), ')
+    print('дракон Хартера-Хейтуэя(9),  "ледяной" фрактал № 2(10), "ледяной" фрактал № 3(11),'
+          ' "ледяной" фрактал № 4(12), "ледяной" фрактал № 5(13), "ледяной" фрактал № 6(14)')
+    _list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']
+    chos = input('Вибирите номер рисунка:')
+    while chos not in _list:
+        chos = input('Введите корректное число:')
+    order = int(input('Введите глубину рекурсии:'))
+    chos_1 = int(chos)
+    size = int(input('Введите размер:'))
+    print('Готово.')
+    turtle.speed(9)
+    if chos == 1:
+        square(size, order)
+    if chos == 2:
+        turtle.left(90)
+        tree(size, order)
+    if chos_1 == 3:
+        turtle.left(90)
+        branch(size, order)
+    if chos_1 == 4:
+        # Серегадайкод
+    if chos_1 == 5:
+        # Серегадайкод
+    if chos_1 == 6:
+        mink_curve(size, order)
+    if chos_1 == 7:
+        ice_fractal_1(size, order)
+    if chos_1 == 8:
+        levi(size, order)
+    if chos_1 == 9:
+        dragon(size, order)
+    if chos_1 == 10:
+        ice_fractal_2(size, order)
+    if chos_1 == 11:
+        ice_fractal_3(size, order)
+    if chos_1 == 12:
+        snowflake_1(size, order)
+    if chos_1 == 14:
+        snowflake_3(size, order)
+    if chos_1 == 13:
+        snowflake_2(size, order)
+    turtle.mainloop()
+
+
+
+if __name__ == '__main__':
+    main()
